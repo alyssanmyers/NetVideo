@@ -29,6 +29,12 @@ void Customer::addRental(const Rental& rental) {
     rentals.push_back(rental);
 }
 
+// calculates frequent renter points
+int Customer::renterPoints() const {
+
+	return 0;
+}
+
 // calculates the amount for a rental
 double Customer::amountFor(const Rental& r) const {
 

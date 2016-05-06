@@ -27,6 +27,9 @@ public:
     // customer rental statement
     std::string statement() const;
     
+    // calculates renter points
+    int renterPoints() const;
+    
     // calculates rental amount
     double amountFor(const Rental&) const;
 
