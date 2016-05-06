@@ -30,8 +30,7 @@ void Customer::addRental(const Rental& rental) {
 }
 
 // calculates the frequent renter points
-int Customer::renterPoints(const Rental& r) {
-	int renterPoints = 0;
+int Customer::renterPoints(const Rental& r, int renterPoints) const {
 	
 	// every rental is a rental point
 	++renterPoints;
@@ -81,14 +80,8 @@ std::string Customer::statement() const {
     double totalAmount = 0;
     int frequentRenterPoints = 0;
     for (std::vector<Rental>::const_iterator it = rentals.begin(); it != rentals.end(); ++it) {
-
-        // every rental is a rental point
-        ++frequentRenterPoints;
-
-        // new releases rented for more then one day gives a bonus rental point
-        if (it->getVideo().getCode() == Video::NEW_RELEASE &&
-            it->getDaysRented() > 1 )
-            ++frequentRenterPoints;
+            
+        frequentRenterPoints = renterPoints(*it, frequentRenterPoints);
 
         // title of rental
         result += "\t";

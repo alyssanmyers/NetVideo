@@ -28,7 +28,7 @@ public:
     std::string statement() const;
     
     // calculates the frequent renter points
-	int renterPoints(const Rental&);
+	int renterPoints(const Rental&, int) const;
     
     // calculates rental amount
     double amountFor(const Rental&) const;
