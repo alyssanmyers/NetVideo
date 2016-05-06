@@ -52,7 +52,7 @@ double Customer::amountFor(const Rental& r) const {
         break;
     }
     
-	return 0;
+	return thisAmount;
 }
 
 // customer rental statement
@@ -80,6 +80,9 @@ std::string Customer::statement() const {
         result += "\t";
         result += it->getVideo().getTitle();
         result += "\t";
+        
+        double thisAmount = 0;
+        thisAmount = amountFor(*it);
 
         // amount of rental
         std::ostringstream out_str_stream;
