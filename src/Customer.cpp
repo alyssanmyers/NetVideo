@@ -30,9 +30,17 @@ void Customer::addRental(const Rental& rental) {
 }
 
 // calculates the frequent renter points
-int Customer::renterPoints() {
+int Customer::renterPoints(const Rental& r) {
+	int renterPoints = 0;
+	
+	// every rental is a rental point
+	++renterPoints;
 
-	return 0;
+    // new releases rented for more then one day gives a bonus rental point
+    if (r.getVideo().getCode() == Video::NEW_RELEASE && r.getDaysRented() > 1 )
+    	++renterPoints;
+    	
+	return renterPoints;
 }
 
 // calculates the amount for a rental
