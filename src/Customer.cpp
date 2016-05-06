@@ -81,6 +81,7 @@ std::string Customer::statement() const {
     int frequentRenterPoints = 0;
     for (std::vector<Rental>::const_iterator it = rentals.begin(); it != rentals.end(); ++it) {
             
+        // frequent points calculation
         frequentRenterPoints = renterPoints(*it, frequentRenterPoints);
 
         // title of rental
